@@ -1,6 +1,8 @@
 import React from "react";
 import './App.css';
-import Containers from "react-bootstrap/containers";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Steps from "./components/Steps";
+
 
 
 const tempMin=`-20`
@@ -16,7 +18,14 @@ class App extends React.Component {
 
     return (
       <div className= "container-fluid"> 
-     
+      <div className= "row">
+        <Steps />
+        <p>
+        gitHeart : 80
+        Temperature : -20
+        Steps : 0
+        </p>
+      </div>
       </div>
     );
   }

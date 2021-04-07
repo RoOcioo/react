@@ -5,13 +5,18 @@ class Steps extends React.Component {
 
 
   render() {
-      <div className= "box col-sm-3 col-6">
-          
-      </div>
+      
+     
     return (
-			<div>
+        <div className= "box col-sm-3 col-6">
+        <span className="material-icons">directions_walk</span>
+        const divStyle = {{
+  fontSize: '100',
+  color: 'black',
+}};
+        </div>
 				
-			</div>
+			
 		)
   };
 }
