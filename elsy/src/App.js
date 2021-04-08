@@ -1,7 +1,8 @@
 import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Steps from "./components/Steps";
+import Box from "./components/Box";
+import './styles/global.css';
 
 
 
@@ -19,7 +20,16 @@ class App extends React.Component {
     return (
       <div className= "container-fluid"> 
       <div className= "row">
-        <Steps />
+        <Box />
+        
+
+       
+        <div className= "box col-sm-3 col-6">
+         <component icon: {${directions_walk}}{"favorite"}{"wb_sunny"} />
+           <component color: {"black"}{ "red"}{ "yellow"} />
+            
+      
+    
         <p>
         gitHeart : 80
         Temperature : -20
