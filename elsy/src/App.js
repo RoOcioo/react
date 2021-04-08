@@ -23,10 +23,12 @@ class App extends React.Component {
         <Box />
         
 
-       
-        <div className= "box col-sm-3 col-6">
-         <component icon: {${directions_walk}}{"favorite"}{"wb_sunny"} />
-           <component color: {"black"}{ "red"}{ "yellow"} />
+        <Box icon= "local_drink"color= "#3A85FF"value= {1.5}unit="L"/> 
+        <Box icon= "directions_walk" value= {3000} unit="steps" color="black" />
+        <Box icon="wb_sunny" value={-10} unit="°C" color="yellow" />
+        <Box icon="favorite"value={120}unit= "bpm" color="red"/>
+        
+
             
       
     
