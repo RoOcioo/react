@@ -4,8 +4,42 @@ import './App.css';
 
 class App extends React.Component {
   render() {
-    return (
+    
 
+      constructor() {
+        super()
+
+        this.state = {
+            userName: 
+            motdePasse: 
+        }
+    }
+
+      renderContent() {
+        if (this.state.userName) { 
+            return (
+                <div>
+                    <input>
+                    <input>
+                </div>
+            );
+        } else { 
+            return (
+                <input>
+                   
+                <input>
+            );
+        }
+    }
+    
+    render() {
+        return (
+            <div>
+                {this.renderNavigation()}
+                {this.renderContent()}
+            </div>
+        );
+    
       <div className="text-center">
       
          <h1 className="h3 mb-3 fw-normal">Login</h1>
