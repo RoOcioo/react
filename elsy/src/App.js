@@ -26,7 +26,7 @@ class App extends React.Component {
     this.onHeartChange = this.onHeartChange.bind(this);
     this.onStepsChange = this.onStepsChange.bind(this);
     this.onTemperatureChange = this.onTemperatureChange.bind(this);
-
+    /*this.calculateWater = this.calculateWater.bind(this);*/
   }
  
     onHeartChange(e) {
@@ -44,11 +44,41 @@ class App extends React.Component {
         temperature: e.target.value
       });
     }
- 
+    /*calculateWater() {
+     this.setState({
+     water: 1.5,
+   });
+ }*/
+      calculateWater() {
+        let tempWater = 0;
+        let heartWater = 0;
+        let stepsWater = 0;
+
+      if (this.state.temperature > 20) {
+        tempWater = 0.02 * (this.state.temperature - 20)
+       }
+
+       if (this.state.heart > 120) {
+        heartWater = 0.0008 * (this.state.heart - 120) 
+         }
+  
+      if (this.state.steps > 10000) {
+      stepsWater = 0.00002 * (this.state.steps - 10000) 
+      }
+
+      
+       this.setState({
+        water: (1.5+ tempWater + heartWater + stepsWater).toFixed
+      });
+
+  
+    }
+     
 
   render() {
-
-    return (
+   
+    
+     return (
       <div className="container-fluid">
         <div className="row">
 
@@ -67,7 +97,6 @@ class App extends React.Component {
           </p>
         </div>
       </div>
-
 
     );
 
