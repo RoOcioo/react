@@ -26,23 +26,27 @@ class App extends React.Component {
     this.onHeartChange = this.onHeartChange.bind(this);
     this.onStepsChange = this.onStepsChange.bind(this);
     this.onTemperatureChange = this.onTemperatureChange.bind(this);
-    /*this.calculateWater = this.calculateWater.bind(this);*/
+    this.calculateWater = this.calculateWater.bind(this);
   }
  
     onHeartChange(e) {
       this.setState({  
         heart: e.target.value
       });
+      this.calculateWater()
     }
     onStepsChange(e) {
       this.setState({  
         steps: e.target.value
       });
+      this.calculateWater()
     }
     onTemperatureChange(e) {
       this.setState({  
         temperature: e.target.value
       });
+
+      this.calculateWater()
     }
     /*calculateWater() {
      this.setState({
@@ -65,13 +69,13 @@ class App extends React.Component {
       if (this.state.steps > 10000) {
       stepsWater = 0.00002 * (this.state.steps - 10000) 
       }
-
-      
+      console.log("water", (1.5+ tempWater + heartWater + stepsWater).toFixed(2))
        this.setState({
-        water: (1.5+ tempWater + heartWater + stepsWater).toFixed
+         
+        water: (1.5+ tempWater + heartWater + stepsWater).toFixed(2)
       });
 
-  
+     
     }
      
 
@@ -83,7 +87,7 @@ class App extends React.Component {
         <div className="row">
 
 
-          <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" />
+          <Box icon="local_drink" color="#3A85FF" value={this.state.water} unit="L" />
           <Box icon="directions_walk" value={this.state.steps} min={stepsMin} max= {stepsMax}color="black" onChange= {this.onStepsChange}/>
           <Box icon="wb_sunny" value={this.state.temperature} unit="°C" color="yellow" min={tempMin} max= {tempMax} onChange= {this.onTemperatureChange} />
           <Box icon="favorite" value={this.state.heart} unit="bpm" color="red" min = {heartMin} max= {heartMax} onChange= {this.onHeartChange}
