@@ -3,19 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends React.Component {
-  render() {
+ 
     
 
       constructor() {
         super()
 
         this.state = {
-            userName: 
-            motdePasse: 
+            eMail: '',
+            motdePasse: '',
+            submit: false
         }
     }
 
-      renderContent() {
+      rendereMail() {
         if (this.state.userName) { 
             return (
                 <div>
@@ -67,6 +68,6 @@ class App extends React.Component {
 
 
   }
-}
+
 
 export default App;
