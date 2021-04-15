@@ -41,12 +41,12 @@ class App extends React.Component {
 
 
       rendereMail() {
-        if ( /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/gm (this.state.eMail))
+        if (/^[^@]+@[^@]+\.[^@]+$/igm.test (this.state.eMail))
            {
               return (
                 <div className="form-floating mb-3">
                     <label for= "exampleEmail" class="form-label">Email adress</label>
-                    <input placeholder= "Enter email" onInput= {(e) => this.funcEmail(e)} className= "form-control is-valid" id= "floatingInput"/>
+                    <input placeholder= "Enter email..." onInput= {(e) => this.funcEmail(e)} className= "form-control is-valid" id= "floatingInput"/>
                 </div>
             )
         } else { 
@@ -60,7 +60,7 @@ class App extends React.Component {
         }
     }
       rendermotdePasse() {
-        if ( /^(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,}$/gm(this.state.motdePasse)) {
+        if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm.test(this.state.motdePasse)) {
           return (
             <div class="form-floating">
             <label for="floatingPassword">Password</label>
@@ -79,7 +79,7 @@ class App extends React.Component {
 
       }
     renderSubmit() {
-      if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/gm(this.state.eMail) && /^(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,}$/gm (this.state.motdePasse))
+      if (/^[^@]+@[^@]+\.[^@]+$/igm.test(this.state.eMail) && /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm.test  (this.state.motdePasse))
        {
         return <button onClick={this.funcSubmit} type= "submit" class= "btn btn-primary">Submit</button>
       } else {
@@ -96,35 +96,45 @@ class App extends React.Component {
       <div className="d-flex flex-column align-items-center">
       
          <h1 className="h3 mb-3 fw-normal">Login</h1>
+        <form style= {{
 
+
+          width: 500
+        }}>
          {this.rendereMail()}
          {this.rendermotdePasse()}
 
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
-          <label for="floatingPassword">Password</label>
-        </div>
-        <div className="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me" /> Remember me
-      </label>
+      
+        <div className="form-check mb-3">
+      
+        <input type="checkbox" class="form-check-input"></input>
+      <label class= "form-check-label" for="exampleCheck">Remember me</label>
     </div>
 
         {this.renderSubmit()}
 
-
+        </form>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 
         
       </div>
     )
+  } else {
+    return ( 
+      <div className="d-flex flex-column align-items-center">
+        <p className= "h1 mt-2 mb-4" style={{
+           fontSize: 40, fontWeight: "initial"
+          }}>Login</p>
+          <div className= "d-flex justify-content-center align-items-center" style= {{
+            width: 450, height: 200
+          }}>
+          <h2 style= {{
+            fontSize: 40, color: 'black'
+          }}>Form submitted</h2>
+          </div>
+      </div>
 
-
-
+    )
   }
 }
 }
