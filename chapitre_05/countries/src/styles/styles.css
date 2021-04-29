@@ -1,0 +1,13 @@
+img { 
+    height: 150px;
+
+}
+
+.card{
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Segoe UI';
+    height: 400px;
+    width: 350px;
+}

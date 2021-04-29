@@ -1,5 +1,8 @@
 import React from 'react';
-import Button from "Button.jsx"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "./Button.jsx";
+import Card from "./Card.jsx";
+import './styles/styles.css';
 
 
 class App extends React.Component {
@@ -15,13 +18,13 @@ class App extends React.Component {
       region: "",
     }
     this.getCountry = this.getCountry.bind(this)
-    this.componentDidMount = this.componentDidMount(this)
+    
 
   }
 
   getCountry(country) {
-    fetch(`https://restcountries.eu/rest/v2/name/france`)
-      .then(res => res.json())
+    fetch('https://restcountries.eu/rest/v2/name/' + country)
+      .then(response => response.json())
       .then(result => {
 
         this.setState({
@@ -39,42 +42,46 @@ class App extends React.Component {
   componentDidMount() {
     fetch('https://restcountries.eu/rest/v2/name/france')
       .then(response => response.json())
-      .then(dataCountry => {
+      .then(result => {
         
           this.setState({
-          name: dataCountry[0].name,
-          capital: dataCountry[0].capital,
-          flag: dataCountry[0].flag,
-          population: dataCountry[0].population,
-          region: dataCountry[0].region
+          name: result[0].name,
+          capital: result[0].capital,
+          flag: result[0].flag,
+          population: result[0].population,
+          region: result[0].region
         })
       
 
-})}
-
-
-renderButton() {
-  return (
-    <div>
-      <Button onClick >France</Button>
-      <Button onClick>Brazil</Button>
-      <Button onClick>Croatia</Button>
-    </div>
-  )
+})
+.catch(err => console.error("err dans le fetch du componentDidMount:", err))
+console.log('hola')
 }
+
 
 render() {
-
   return (
-    <div>
-      <div>{this.state.name}</div>
+    <div className="container d-flex justify-content-center">
+    <div className="d-flex flex-column">
 
-      {this.renderButton()}
+    <h1 className="h1 d-flex justify-content-center">Country Selector</h1>
+      <div className="d-flex flex-row justify-content-start">
+      <Button onClick = {() => this.getCountry("france")}>France</Button>
+      <Button onClick = {() => this.getCountry("brazil")}>Brazil</Button>
+      <Button onClick = {() => this.getCountry("croatia")}>Croatia</Button>
+      </div>
+  
 
-    </div>
+    <div className="container card d-flex text-align-center">
+     <Card name={this.state.name} capital={this.state.capital} flag={this.state.flag} population={this.state.population} region={this.props.region}></Card>
+     
+     
+     </div>
+     </div>
+     </div>
+     );
+  }
+  }
 
-  )
-} 
-}
 
 export default App;
