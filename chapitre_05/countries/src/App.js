@@ -26,13 +26,13 @@ class App extends React.Component {
     fetch(`http://localhost:8000/countries/`+ country) 
       .then(response => response.json())
       .then(result => {
-
+ console.log(result)
         this.setState({
-          name: result[0].name,
-          capital: result[0].capital,
-          flag: result[0].flag,
-          population: result[0].population,
-          region: result[0].region
+          name: result.countriesCount[0].name,
+          capital: result.countriesCount[0].capital,
+          flag: result.countriesCount[0].flag,
+          population: result.countriesCount[0].population,
+          region: result.countriesCount[0].region
         })
       })
 
@@ -40,22 +40,21 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    fetch("https://restcountries.eu/rest/v2/name/france")
+    fetch("http://localhost:8000/countries/france")
       .then(response => response.json())
       .then(result => {
-        
+      
           this.setState({
-          name: result[0].name,
-          capital: result[0].capital,
-          flag: result[0].flag,
-          population: result[0].population,
-          region: result[0].region
+          name: result.countriesCount[0].name,
+          capital: result.countriesCount[0].capital,
+          flag: result.countriesCount[0].flag,
+          population: result.countriesCount[0].population,
+          region: result.countriesCount[0].region
         })
       
 
 })
-.catch(err => console.error("err dans le fetch du componentDidMount:", err))
-console.log('hola')
+
 }
 
 
