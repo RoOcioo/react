@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   getCountry(country) {
-    fetch('https://restcountries.eu/rest/v2/name/' + country)
+    fetch(`http://localhost:8000/countries/`+ country) 
       .then(response => response.json())
       .then(result => {
 
@@ -32,7 +32,7 @@ class App extends React.Component {
           capital: result[0].capital,
           flag: result[0].flag,
           population: result[0].population,
-          region: result[0].region,
+          region: result[0].region
         })
       })
 
@@ -40,7 +40,7 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    fetch('https://restcountries.eu/rest/v2/name/france')
+    fetch("https://restcountries.eu/rest/v2/name/france")
       .then(response => response.json())
       .then(result => {
         
