@@ -34,8 +34,8 @@ class Add extends React.Component {
                 <div className="d-flex flex-column align-items-center">
                 <div className="mb-3" >
                     <div className="input-group mt-3 d-flex align-self-center">
-                        <input type="text" placeholder="Item" onChange={this.updateProductName} class="form-control" aria-label="Item" />
-                        <button className="btn btn-primary" type="submit" onClick={() => this.props.addItem(this.state.productName, this.state.price)} id="button-addon2">Add</button>
+                        <input type="text" placeholder="Item" onChange={this.updateProductName} className="form-control" aria-label="Item" />
+                        <button className="btn btn-primary" type="submit" onClick={() => this.props.addingItem(this.state.productName, this.state.price)} id="button-addon2">Add</button>
                     </div>
                     <div>{this.state.price} €</div>
                 </div >

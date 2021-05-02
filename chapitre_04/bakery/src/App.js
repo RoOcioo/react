@@ -22,6 +22,7 @@ class App extends React.Component {
     this.selectList = this.selectList.bind(this);
     this.selectPay = this.selectPay.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.popItem = this.popItem.bind(this);
   }
 
   selectAdd() {
@@ -47,7 +48,7 @@ class App extends React.Component {
       name: leNom,
       price: lePrix
     };
-    let updateItems = this.state.items;
+    const updateItems = this.state.items;
 
     updateItems.push(leItem);
 
@@ -55,6 +56,7 @@ class App extends React.Component {
       items: updateItems 
     });
     this.selectList()
+    console.log(leItem)
   }
 
 
@@ -73,7 +75,7 @@ class App extends React.Component {
     if (this.state.activeTab === "add") {
       return (
         <div>
-          <Add addItem={this.addItem}/>
+          <Add addingItem={this.addItem}/>
         </div>
       )
     } else if (this.state.activeTab === "list") {
