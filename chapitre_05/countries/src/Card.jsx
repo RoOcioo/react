@@ -6,12 +6,12 @@ class Card extends React.Component {
 render() {
     return (
         <section>
-        <div className="d-flex flex-column">
-        <span><img src= {this.props.flag} alt="flag"></img></span>
-        <span className= "h2">Country : {this.props.name}</span>
-        <span className= "h3">Capital : {this.props.capital}</span>
-        <span>Region : {this.props.region}</span>
-        <span>Population : {this.props.population}</span>
+        <div className="row col-6 offset-3">
+        <span><img className="img-fluid" src= {this.props.flag} alt="flag"></img></span>
+        <div className="row col-6 offset-3" >Country : {this.props.name}</div>
+        <div className= "row col-6 offset-3">Capital : {this.props.capital}</div>
+        <div className="row col-6 offset-3">Region : {this.props.region}</div>
+        <div className="row col-6 offset-3">Population : {this.props.population}</div>
         
 
     </div>
