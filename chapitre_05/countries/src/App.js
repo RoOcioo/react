@@ -44,10 +44,11 @@ handleInputSearch(e) {
 
 render() {
   return (
-    <div className="container d-flex justify-content-center">
-    <div className="d-flex flex-column">
-    
-    <h1 className="h1 d-flex justify-content-center">Country Selector</h1>
+    <div className="container ">
+    <div className="row">
+    <div className="offset-4 col-4">
+    <h1 className="text-center">Country Selector</h1>
+    </div>
     </div>
     
     <div className="row">
@@ -62,15 +63,12 @@ render() {
                         this.state.countriesFound.map(elem => {
                           return <div key={elem.name} className="col-6">
       
-  
-
-    <div className="container card d-flex text-align-center">
      <Card name={elem.name} capital={elem.capital} flag={elem.flag} population={elem.population} region={elem.region}></Card>
      
      
      </div>
    
-     </div>
+     
       })
     }
      </div>
