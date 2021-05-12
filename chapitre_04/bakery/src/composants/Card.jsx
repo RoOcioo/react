@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Card.css'
 
 
 class Card extends React.Component{
@@ -7,12 +8,12 @@ class Card extends React.Component{
         super()
 
         this.state = {
-            image: '../../public/images/item.png'
+            image: './images/item.png'
         }
     }
 
     componentDidMount() {
-        fetch('https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/' + this.props.itemName + '.png')
+        fetch('https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/' + this.props.productName + '.png')
         .then(res => res.blob())
         .then(urlB=>URL.createObjectURL(urlB))
         .then(urlImage =>{
@@ -27,9 +28,9 @@ class Card extends React.Component{
     render() {
         return(
         <div>
-                <button className='imgButton'
-                    style={{ backgroundImage: `url(${this.state.image})` }}
-        onClick={() => this.props.onClick(this.props.productName, this.props.price)}></button>
+                <button className="img" onClick={() => this.props.onClick(this.props.productName, this.props.price)}>
+              <img src= {this.state.image}></img>
+              </button>
     </div>
         )
 }

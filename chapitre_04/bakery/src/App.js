@@ -84,15 +84,15 @@ class App extends React.Component {
           <List popItem={this.popItem} items={this.state.items} />
         </div>
       )
-    } else {
+    } if (this.state.activeTab==="pay")
       return (
         <div>
-          <Pay />
+          <Pay items={this.state.items} />
         </div>
       )
     }
 
-  }
+  
 
 
       render () {
@@ -112,8 +112,8 @@ class App extends React.Component {
         </div>
       )
     }
-  }
   
+  }
  
 
   
