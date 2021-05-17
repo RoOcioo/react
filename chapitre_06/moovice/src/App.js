@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
-import Home from './components/views/Home';
-import Favorites from './components/views/Favorites';
-import Popular from './components/views/Popular';
-import PopularBattle from './components/views/PopularBattle';
-import Weekly from './components/views/Weekly';
-import WeeklyBattle from './components/views/WeeklyBattle';
+import Home from './views/Home';
+import Favorites from './views/Favorites';
+import Popular from './views/Popular';
+import PopularBattle from './views/PopularBattle';
+import Weekly from './views/Weekly';
+import WeeklyBattle from './views/WeeklyBattle';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
