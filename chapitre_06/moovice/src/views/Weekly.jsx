@@ -26,13 +26,18 @@ export default class Weekly extends Component {
 
 
     componentDidMount() {
-        getLatestMovies()
-            .then(data => {
 
-                this.setState({
-                    movies: data.results
-                })
-            })
+
+        const url = "http://localhost:8000/movies/weekly";
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+         
+          this.setState({
+            movies: data.dataWeeklyMovies.results,
+            
+          });
+        });
     }
 
     render() {
